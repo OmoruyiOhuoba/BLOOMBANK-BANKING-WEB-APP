@@ -10,7 +10,7 @@ const history = createBrowserHistory();
 
 export const registerUser = (userData) => dispatch => {
 
-    axios.post("http://localhost:3000/users/register", userData)
+    axios.post("http://localhost:3000/api/users/register", userData)
       .then(() => {
         console.log("success");
         history.push("/login");
@@ -25,7 +25,7 @@ export const registerUser = (userData) => dispatch => {
 
   // Login - get user token
   export const loginUser = userData => dispatch => {
-    axios.post("http://localhost:3000/users/login", userData)
+    axios.post("http://localhost:3000/api/users/login", userData)
       .then(res => {
         // Save to localStorage
   // Set token to localStorage
