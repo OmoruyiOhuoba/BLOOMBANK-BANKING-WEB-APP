@@ -12,7 +12,7 @@ const Home = () => {
             <p className="text-third">Create an account by clicking sign up or login to your account below</p>
             <br/>
         
-            <button><Link to="/register" className="button-link">Sign Up</Link></button> <br/> <br/> <button> <Link to="/login" className="button-link">Log in</Link></button>
+            <Link to="/register" className="button-link"><button>Sign Up</button></Link> <br/> <br/><Link to="/login" className="button-link"> <button> Log in</button></Link>
             </div>
         </div>
     )

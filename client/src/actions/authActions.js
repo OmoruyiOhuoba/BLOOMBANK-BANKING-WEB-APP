@@ -10,10 +10,10 @@ const history = createBrowserHistory();
 
 export const registerUser = (userData) => dispatch => {
 
-    axios.post("http://localhost:3000/api/users/register", userData)
+    axios.post("/api/users/register", userData)
       .then(() => {
         console.log("success");
-        history.push("/login");
+        window.location.href = "./login"
       }) // re-direct to login on successful register
       .catch(err =>
         dispatch({
@@ -25,7 +25,7 @@ export const registerUser = (userData) => dispatch => {
 
   // Login - get user token
   export const loginUser = userData => dispatch => {
-    axios.post("http://localhost:3000/api/users/login", userData)
+    axios.post("/api/users/login", userData)
       .then(res => {
         // Save to localStorage
   // Set token to localStorage
@@ -37,7 +37,6 @@ export const registerUser = (userData) => dispatch => {
         const decoded = jwt_decode(token);
         // Set current user
         dispatch(setCurrentUser(decoded));
-        history.push("/dashboard");
         window.location.href = "./dashboard";      })
       .catch(err =>
         dispatch({
